@@ -6,6 +6,8 @@ import json
 from kafka import KafkaProducer
 
 folderName = "certs/"
+token = "c41r8h2ad3iegm5g7k1g"
+
 producer = KafkaProducer(
     bootstrap_servers="kafka-stock-tick-sample-koride-7a85.aivencloud.com:20158",
     #bootstrap_servers="<INSTANCE_NAME>-<PROJECT_NAME>.aivencloud.com:<PORT>",
@@ -48,7 +50,7 @@ def on_open(ws):
 
 if __name__ == "__main__":
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("wss://ws.finnhub.io?token=c41r8h2ad3iegm5g7k1g",
+    ws = websocket.WebSocketApp("wss://ws.finnhub.io?token="+token,
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
